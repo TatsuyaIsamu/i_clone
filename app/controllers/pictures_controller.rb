@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-
+  before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all

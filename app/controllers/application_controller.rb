@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def forbid_login_user
     redirect_to "/" if current_user
   end
+  def admin_required
+    redirect_to "/" if current_user.id != @picture.user_id
+  end
 end
+

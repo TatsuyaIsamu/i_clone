@@ -37,6 +37,7 @@ class PicturesController < ApplicationController
 
   # PATCH/PUT /pictures/1 or /pictures/1.json
   def update
+    admin_required
     respond_to do |format|
       if @picture.update(picture_params)
         format.html { redirect_to @picture, notice: "Picture was successfully updated." }
@@ -50,6 +51,7 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
+    admin_required
     @picture.destroy
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }

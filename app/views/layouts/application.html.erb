@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to "投稿一覧", pictures_path %>
+      <%= link_to "ユーザー情報", users_path %>
+      <%= link_to "新規作成", new_user_path %>
+    </header>
     <%= yield %>
   </body>
 </html>

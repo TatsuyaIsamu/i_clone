@@ -9,6 +9,7 @@
     <% @pictures.each do |picture| %>
       <tr><td>title</td><td><%= picture.title%></td></tr>
       <tr><td>content</td><td><%= picture.content%></td></tr>
+      <tr><td>user</td><td><%= picture.user.name%></td></tr>
     <% end %>
   </tbody>
 </table>

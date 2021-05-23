@@ -1,1 +1,14 @@
 <h1>ホーム画面</h1>
+<table>
+  <thead>
+    <tr>
+      <th>投稿一覧</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr><td>title</td><td><%= picture.title%></td></tr>
+      <tr><td>content</td><td><%= picture.content%></td></tr>
+    <% end %>
+  </tbody>
+</table>

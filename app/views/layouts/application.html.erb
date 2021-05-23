@@ -11,15 +11,17 @@
 
   <body>
     <header>
-      <% if logged_in?%>
-        <%= current_user.name %>
-        <%= link_to "投稿一覧", pictures_path %>
-        <%= link_to "ユーザー情報", users_path %>
-        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-      <% else %>
-        <%= link_to "新規作成", new_user_path %>
-        <%= link_to "ログイン", new_session_path %>
-      <% end%>
+        <%= link_to_unless_current "instagram_clone", "/" %>
+       
+        <% if logged_in?%>
+          <%= link_to current_user.name, users_path %>
+          <%= link_to "投稿一覧", pictures_path %>
+          <%= link_to "ユーザー情報", user_path(current_user.id) %>
+          <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+        <% else %>
+          <%= link_to "新規作成", new_user_path %>
+          <%= link_to "ログイン", new_session_path %>
+        <% end%>
     </header>
     <%= yield %>
   </body>

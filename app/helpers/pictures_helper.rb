@@ -4,4 +4,5 @@ module PicturesHelper
      current_user.id == @picture.user_id
   end
 
+  
 end

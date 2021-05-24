@@ -12,6 +12,7 @@
       <tr><td>title</td><td><%= picture.title%></td></tr>
       <tr><td>content</td><td><%= picture.content%></td></tr>
       <tr><td>user</td><td><%= picture.user.name%><%= link_to 'Show', picture %></td></tr>
+      <tr><td>favorite</td><td><%= picture.favorites.count %></td></tr>
       
     <% end %>
   </tbody>

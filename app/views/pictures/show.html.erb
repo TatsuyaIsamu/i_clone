@@ -14,8 +14,19 @@
   <strong>Image:</strong>
   <%= @picture.image %>
 </p>
+
+<p>
+  <strong>
+    <% if @favorite %>
+      <%= link_to "お気に入りを解除する", favorites_path(id: @favorite.id), method: :delete %>
+    <% else %>
+      <%= link_to "お気に入りする", favorites_path(picture_id: @picture.id), method: :post %>
+    <% end %>
+  </strong>
+</p>
+
 <% if admin %>
- <%= link_to '編集する', edit_user_path(current_user.id) %>
- <%= link_to '削除する', user_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+ <%= link_to '編集する', edit_picture_path(@picture.id) %>
+ <%= link_to '削除する', picture_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <%= link_to 'Back', pictures_path %>

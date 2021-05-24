@@ -5,6 +5,8 @@ ruby '2.6.5'
 
 gem 'bcrypt'
 
+gem 'faker'
+
 gem 'pry-rails'
 gem 'better_errors'
 gem 'binding_of_caller'

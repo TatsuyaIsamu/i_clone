@@ -10,7 +10,8 @@
       <tr><td>title</td><td><%= picture.title%></td></tr>
       <tr><td>content</td><td><%= picture.content%></td></tr>
       <tr><td>user</td><td><%= picture.user.name%></td></tr>
-          <tr><td>favorite</td><td><%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td></tr>
+      <tr><td>user</td><td><%= picture.user.name%><%= link_to 'Show', picture %></td></tr>
+      <tr><td>favorite</td><td><%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td></tr>
     <% end %>
   </tbody>
 </table>

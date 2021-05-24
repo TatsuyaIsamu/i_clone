@@ -7,6 +7,11 @@ gem 'bcrypt'
 
 gem 'faker'
 
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'mimemagic', '0.3.7'
+
 gem 'pry-rails'
 gem 'better_errors'
 gem 'binding_of_caller'

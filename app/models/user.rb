@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :favorites_pictures, through: :favorites, source: :picture
   validates :email, presence: true, length: { maximum: 255 }
   validates :name, presence: true, length: { maximum: 30 }
-
+  mount_uploader :user_image, ImageUploader
 end

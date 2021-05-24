@@ -11,9 +11,19 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <% if @user.user_image %>
+    <strong>Image:</strong>
+    <%= image_tag @user.user_image.url %>
+  <% end %>
 </p>
+
+
+
+<p>
+   <strong>Password:</strong>
+    <%= @user.password %>
+ </p>
+
  <%= link_to '変更する', edit_user_path(current_user.id) %>
  <%= link_to '退会する', user_path, method: :delete, data: { confirm: 'Are you sure?' } %>
  <%= link_to 'ユーザーページへ戻る', users_path %>

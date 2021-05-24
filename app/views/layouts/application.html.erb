@@ -17,6 +17,7 @@
           <%= link_to "ユーザーページ", users_path %>
           <%= link_to "投稿一覧", pictures_path %>
           <%= link_to "ユーザー情報", user_path(current_user.id) %>
+          <%= link_to "お問い合わせ", new_contact_path %>
           <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
         <% else %>
           <%= link_to "新規作成", new_user_path %>

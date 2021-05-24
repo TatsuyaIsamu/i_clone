@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, only: [:new, :create]
   # GET /users or /users.json
   def index
-    @users = User.all
+    @my_favorites = current_user.favorites_pictures
   end
 
   # GET /users/1 or /users/1.json

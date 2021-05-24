@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
-
+<h1>UserPage</h1>
+<table>
+  <thead>
+    <tr>
+      <th>お気に入り投稿一覧</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @my_favorites.each do |picture| %>
+      <tr><td>title</td><td><%= picture.title%></td></tr>
+      <tr><td>content</td><td><%= picture.content%></td></tr>
+      <tr><td>user</td><td><%= picture.user.name%><%= link_to 'Show', picture %></td></tr>
+      <tr><td>favorite</td><td><%= picture.favorites.count %></td></tr>
+      
+    <% end %>
+  </tbody>
+</table>
 

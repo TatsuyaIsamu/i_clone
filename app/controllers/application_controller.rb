@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  require "mini_magick"
   include SessionsHelper
 
   def login_required

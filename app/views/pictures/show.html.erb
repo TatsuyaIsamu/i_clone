@@ -11,8 +11,10 @@
 </p>
 
 <p>
+  <% if @picture.image.present? %>
   <strong>Image:</strong>
   <%= image_tag @picture.image.url %>
+  <% end %>
 </p>
 
 <p>

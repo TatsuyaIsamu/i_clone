@@ -5,7 +5,7 @@
 <p>
   <% if @user.user_image.present? %>
     <strong>Image:</strong>
-     <%= image_tag(@user.user_image_url(:thumb)) %>
+     <%= image_tag @user.user_image_url(:thumb), class:"icon" %>
   <% end %>
 </p>
 

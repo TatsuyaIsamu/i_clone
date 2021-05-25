@@ -20,9 +20,9 @@
 <p>
   <strong>
     <% if @favorite %>
-      <%= link_to "お気に入りを解除する", favorites_path(id: @favorite.id), method: :delete %>
+      <%= link_to "いいねを解除する", favorites_path(id: @favorite.id), method: :delete %>
     <% else %>
-      <%= link_to "お気に入りする", favorites_path(picture_id: @picture.id), method: :post %>
+      <%= link_to "いいね", favorites_path(picture_id: @picture.id), method: :post %>
     <% end %>
   </strong>
 </p>

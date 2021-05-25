@@ -4,16 +4,20 @@
 <table>
   <thead>
     <tr>
-      <th>お気に入り投稿一覧</th>
+      <th>投稿一覧</th>
     </tr>
   </thead>
   <tbody>
     <% @my_favorites.each do |picture| %>
-      <tr><td>title</td><td><%= picture.title%></td></tr>
-      <tr><td>content</td><td><%= picture.content%></td></tr>
-      <tr><td>user</td><td><%= picture.user.name%><%= link_to 'Show', picture %></td></tr>
-          <tr><td>favorite</td><td><%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td></tr>
-      
+      <tr>
+        <td ><%=image_tag(picture.user.user_image_url(:thumb), class:"icon") %><%= picture.user.name%></td>
+  
+      </tr>
+      <tr><td><strong><%= picture.title%></strong></td></tr>
+     <tr><td><%= picture.content%></td></tr>
+     <tr><td><%= image_tag picture.image_url%></td> </tr>
+      <tr><td>いいね<%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td><td>  <%= link_to 'Show', picture %></td></tr>
+    
     <% end %>
   </tbody>
 </table>

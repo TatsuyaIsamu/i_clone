@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'New Picture', new_picture_path %>
 <h1>Pictures</h1>
 <table>
   <thead>
@@ -9,14 +10,24 @@
   </thead>
   <tbody>
     <% @pictures.each do |picture| %>
-      <tr><td>title</td><td><%= picture.title%></td></tr>
-      <tr><td>content</td><td><%= picture.content%></td></tr>
-      <tr><td>user</td><td><%= picture.user.name%><%= link_to 'Show', picture %></td></tr>
-      <tr><td>favorite</td><td><%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td></tr>
-      
+      <tr>
+        <td>
+          <% if picture.user.user_image.present? %>
+           <%= image_tag(picture.user.user_image_url(:thumb),class:"icon") %>
+          <% end %> 
+          <%= picture.user.name%></td>
+       </tr>
+      <tr><td><strong><%= picture.title%></strong></td></tr>
+     <tr><td><%= picture.content%></td></tr>
+     <tr><td>
+      <% if picture.user.user_image.present? %>
+         <%= image_tag picture.image_url%>
+       <% end%>
+     </td> </tr>
+      <tr><td>いいね<%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td><td>  <%= link_to 'Show', picture %></td></tr>
+    
     <% end %>
   </tbody>
 </table>
 
 
-<%= link_to 'New Picture', new_picture_path %>

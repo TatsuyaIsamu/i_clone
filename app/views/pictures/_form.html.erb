@@ -1,32 +1,25 @@
-<%= form_with(model: picture, local: true) do |form| %>
-  <% if picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+<%= form_with(model: @picture, local: true) do |form| %>
+  
+  <table>
+    <thead>
+      <% if picture.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
 
-      <ul>
-      <% picture.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% picture.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_area :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    </thead>
+    <tbody>
+      <tr><td><%= form.label :title %></td><td><%= form.text_field :title %></td></tr>
+      <tr><td><%= form.label :content %></td><td><%= form.text_area :content %></td></tr>
+      <tr><td><%= form.label :image %></td><td><%= form.file_field :image %></td></tr>
+    </tbody>
+  </table>
+  <%= form.submit "投稿する" %>
 <% end %>

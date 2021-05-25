@@ -24,14 +24,18 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
-    @picture.user_id = current_user.id
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: "Picture was successfully created." }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+    if params[:back]
+      render :new
+    else
+      @picture.user_id = current_user.id
+      respond_to do |format|
+        if @picture.save
+          format.html { redirect_to @picture, notice: "Picture was successfully created." }
+          format.json { render :show, status: :created, location: @picture }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @picture.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -50,6 +54,9 @@ class PicturesController < ApplicationController
     end
   end
 
+  def confirm
+    @picture = Picture.new(picture_params)
+  end
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
     admin_required
@@ -66,12 +73,12 @@ class PicturesController < ApplicationController
   end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def picture_params
-      params.require(:picture).permit(:title, :content, :image)
-    end
+  # Only allow a list of trusted parameters through.
+  def picture_params
+    params.require(:picture).permit(:title, :content, :image, :image_cache)
+  end
 end

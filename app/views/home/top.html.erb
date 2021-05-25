@@ -1,17 +1,1 @@
-<h1>ホーム画面</h1>
-<table>
-  <thead>
-    <tr>
-      <th>投稿一覧</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr><td>title</td><td><%= picture.title%></td></tr>
-      <tr><td>content</td><td><%= picture.content%></td></tr>
-      <tr><td>user</td><td><%= picture.user.name%></td></tr>
-      <tr><td>user</td><td><%= picture.user.name%><%= link_to 'Show', picture %></td></tr>
-      <tr><td>favorite</td><td><%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td></tr>
-    <% end %>
-  </tbody>
-</table>
+<img src="/B80136D0-3F2E-4EA4-AE40-E8D0C818C9BA_4_5005_c.jpeg">

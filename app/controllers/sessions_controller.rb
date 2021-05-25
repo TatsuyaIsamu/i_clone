@@ -5,17 +5,18 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:session][:email])
- 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      redirect_to new_session_path
+      @error_message = "メールアドレス もしくは パスワードが違います"
+      render :new
     end
   end
 
   def destroy
     session.delete(:user_id)
-    redirect_to new_session_path
+    @error_message = "ログアウトしました"
+    render :new
   end
 end

@@ -1,9 +1,18 @@
+<h1>Login User</h1>
+
 <%= form_with(scope: :session, url: sessions_path, local: true) do |form|%> 
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-  <%= form.label :password %>
-  <%= form.text_field :password %>
-  <%= form.submit "ログイン" %>
- 
-<% end %>
-<%= link_to "トップに戻る", "/" %>
+
+<table>
+  <thead>
+    <% if @error_message.presence %>
+      <%= @error_message %>
+    <% end %>
+  </thead>
+  <tbody>
+    <tr><td><%= form.label :email %></td><td><%= form.text_field :email %></td></tr>
+    <tr><td><%= form.label :password %></td><td><%= form.text_field :password %></td></tr> 
+  </tbody>
+</table>
+<%= form.submit "ログイン" %>
+ <% end %>
+<%= link_to "Back", "/" %>

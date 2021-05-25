@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<p>
+  <% if @user.user_image.present? %>
+    <strong>Image:</strong>
+     <%= image_tag(@user.user_image_url(:thumb)) %>
+  <% end %>
+</p>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -11,19 +20,7 @@
 </p>
 
 
-<p>
-  <% if @user.user_image.present? %>
-    <strong>Image:</strong>
-     <%= image_tag(@user.user_image_url(:thumb)) %>
-  <% end %>
-</p>
 
-
-
-<p>
-   <strong>Password:</strong>
-    <%= @user.password %>
- </p>
 
  <%= link_to '変更する', edit_user_path(current_user.id) %>
  <%= link_to '退会する', user_path, method: :delete, data: { confirm: 'Are you sure?' } %>

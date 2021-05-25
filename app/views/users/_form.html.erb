@@ -1,8 +1,10 @@
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
+  
+<table>
+  <thead>
+   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,28 +12,15 @@
       </ul>
     </div>
   <% end %>
+  </thead>
+  <tbody>
+    <tr><td><%= form.label :name %></td><td><%= form.text_field :name %></td></tr>
+    <tr><td><%= form.label :email %></td><td><%= form.text_field :email %></td></tr>
+    <tr><td><%= form.label :password %></td><td><%= form.text_field :password %></td></tr>
+    <tr><td><%= form.label :user_image %></td><td><%= form.file_field :user_image  %></td></tr>
+  </tbody>
+</table>
+<%= form.submit choose_signup_or_edit %>
+ <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_area :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_area :password %>
-  </div>
  
-   <div class="field">
-    <%= form.label :user_image %>
-    <%= form.file_field :user_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

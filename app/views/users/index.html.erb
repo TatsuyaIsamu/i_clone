@@ -8,11 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @my_favorites.each do |picture| %>
-      <tr>
-        <td ><%=image_tag(picture.user.user_image_url(:thumb), class:"icon") %><%= picture.user.name%></td>
-  
-      </tr>
+    <% @pictures.each do |picture| %>
       <tr><td><strong><%= picture.title%></strong></td></tr>
      <tr><td><%= picture.content%></td></tr>
      <tr><td><%= image_tag picture.image_url%></td> </tr>

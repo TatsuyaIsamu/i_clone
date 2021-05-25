@@ -1,1 +1,10 @@
-<img src="/B80136D0-3F2E-4EA4-AE40-E8D0C818C9BA_4_5005_c.jpeg">
+
+<div class="container">
+<img class="top" src="/B80136D0-3F2E-4EA4-AE40-E8D0C818C9BA_4_5005_c.jpeg">
+
+<% unless logged_in?%>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn " type="button"><%= link_to "新規作成", new_user_path %></button>
+  <button class="btn" type="button"><%= link_to "ログイン", new_session_path %></button>
+</div>
+<% end %>

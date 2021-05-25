@@ -11,19 +11,20 @@
 
   <body>
     <header>
-        <%= link_to_unless_current "instagram_clone", "/" %>
+        <%= link_to_unless_current image_tag("/D5DA76DE-8777-413B-8F6A-BE1E67530E02_4_5005_c.jpeg"), "/" %>
        
         <% if logged_in?%>
-          <%= link_to "ユーザーページ", users_path %>
-          <%= link_to "投稿一覧", pictures_path %>
-          <%= link_to "ユーザー情報", user_path(current_user.id) %>
-          <%= link_to "お問い合わせ", new_contact_path %>
-          <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-        <% else %>
-          <%= link_to "新規作成", new_user_path %>
-          <%= link_to "ログイン", new_session_path %>
+          <div class="header-right">
+            <%= link_to "ユーザーページ", users_path %>
+            <%= link_to "投稿一覧", pictures_path %>
+            <%= link_to "ユーザー情報", user_path(current_user.id) %>
+            <%= link_to "お問い合わせ", new_contact_path %>
+            <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+          </div>
         <% end%>
     </header>
+    <div class="main">
     <%= yield %>
+    </div>
   </body>
 </html>

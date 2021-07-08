@@ -11,10 +11,23 @@
     <% @pictures.each do |picture| %>
       <tr><td><strong><%= picture.title%></strong></td></tr>
      <tr><td><%= picture.content%></td></tr>
-     <tr><td><%= image_tag picture.image_url%></td> </tr>
+  
       <tr><td>いいね<%= link_to picture.favorites.count, favorite_picture_path(id: picture.id) %></td><td>  <%= link_to 'Show', picture %></td></tr>
-    
+
     <% end %>
+
+     <h2>ユーザー</h2>
+      <% @users.each do |user| %>
+        <% if user.id != current_user.id %>
+          <li>
+            <div class="item">
+              <%= link_to user.name, user %>
+              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
+            </div>
+          </li>
+          <li><%= render 'follow_form', user: user %></li> <!-- フォロー機能が実装されて入ればこの一文も必要 -->
+        <% end %>
+      <% end %>
   </tbody>
 </table>
 
